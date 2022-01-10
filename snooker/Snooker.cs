@@ -2,7 +2,7 @@
 
 namespace snooker
 {
-    class Program
+    class Snooker
     {
         static void Main(string[] args)
         {
