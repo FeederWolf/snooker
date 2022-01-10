@@ -16,7 +16,9 @@ namespace snooker
             {
                 Versenyzok.Add(new Versenyzo(sor));
             }
-            Console.WriteLine(Versenyzok[0].nev);
+            //test Console.WriteLine(Versenyzok[0].nev);
+            //3.feladat egy darab kiiras lesz.
+            Console.WriteLine($"3. feladat: a vilagranglistan {Versenyzok.Count} versenyzo szerepel.");
         }
     }
 }
