@@ -33,8 +33,7 @@ namespace snooker
             //vagy
             Console.WriteLine($"4. feladat: a versenyzők átlagosan {Versenyzok.Average(versenyzo => versenyzo.nyeremeny):0.00} fontot kerestek");
 
-            //5. noeware
-            int maxNyer = 0;
+            //5.
             Versenyzo maxV = Versenyzok[0];
             foreach (var v in Versenyzok)
             {
@@ -60,7 +59,24 @@ namespace snooker
             Console.WriteLine($"\tOrszág: {maxV.orszag}");
             Console.WriteLine($"\tNyeremény: {(maxV.nyeremeny * 380).ToString("C0")} ");
 
-            //6.
+            //6. 
+            bool vanNorveg = false;
+            foreach (var v in Versenyzok)
+            {
+                if (v.orszag == "Norvégia")
+                {
+                    vanNorveg = true;
+                }
+            }
+            Console.WriteLine($"6. feladat: A versenyzők között {(vanNorveg ? "van" : "nincs")} norvég versenyző");
+            //körülményes version
+            /*
+             if (vanNorveg){cw(van)} else {cw(nincs)}
+             "hehehhe..." - marci vicc emotion
+             */
+            //vagy
+            
+                Console.WriteLine($"6. feladat: A versenyzők között {(Versenyzok.Any(v => v.orszag == "Norvégia") ? "van" : "nincs")} norvég versenyző");
         }
     }
 }
