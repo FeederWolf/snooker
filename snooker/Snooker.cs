@@ -77,6 +77,38 @@ namespace snooker
             //vagy
             
                 Console.WriteLine($"6. feladat: A versenyzők között {(Versenyzok.Any(v => v.orszag == "Norvégia") ? "van" : "nincs")} norvég versenyző");
+
+            //7.
+            Dictionary<string, int> stat = new Dictionary<string, int>(); //kulcs érték párok. Szia öcsikém
+            //elem (kulcs-érték pár) hozzáadása
+            /*
+             stat.Add("Kína", 20);
+            //egy elem létezésének vizsgálása
+            stat.ContainsKey("Kína");
+            //egy kulcshoz tartozó érték használata
+            stat["Kína"] = 20;
+             */
+
+            foreach (var v in Versenyzok)
+            {
+                if (stat.ContainsKey(v.orszag))
+                {
+                    stat[v.orszag]++;
+                }
+                else {
+                    stat.Add(v.orszag, 1);                
+                }
+            }
+            Console.WriteLine($"7. feladat: statisztika");
+            foreach (var s in stat)
+            {
+                if (s.Value > 4)
+                {
+                    Console.WriteLine($"\t{s.Key} - {s.Value} fő");
+                }
+            }
+            //vagy
+           //TODO: linq
         }
     }
 }
