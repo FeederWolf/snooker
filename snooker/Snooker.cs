@@ -32,6 +32,35 @@ namespace snooker
             Console.WriteLine($"4. feladat: a versenyzők átlagosan {atlag:0.00} fontot kerestek");
             //vagy
             Console.WriteLine($"4. feladat: a versenyzők átlagosan {Versenyzok.Average(versenyzo => versenyzo.nyeremeny):0.00} fontot kerestek");
+
+            //5. noeware
+            int maxNyer = 0;
+            Versenyzo maxV = Versenyzok[0];
+            foreach (var v in Versenyzok)
+            {
+                if (v.orszag == "Kína" && v.nyeremeny > maxV.nyeremeny)
+                {
+                    maxV = v;
+                }
+
+            }
+            Console.WriteLine($"A legjobban kereső kínai tányér:");
+            Console.WriteLine($"\tHelyezés: {maxV.helyezes}");
+            Console.WriteLine($"\tNév: {maxV.nev}");
+            Console.WriteLine($"\tOrszág: {maxV.orszag}");
+            Console.WriteLine($"\tNyeremény: {(maxV.nyeremeny * 380).ToString("C0")} ");
+            //vagy
+                maxV = Versenyzok
+                .Where(v => v.orszag == "Kína")
+                .OrderBy(v => v.nyeremeny)
+                .Last(); //csak az utolsó kell
+            Console.WriteLine($"A legjobban kereső kínai tányér:");
+            Console.WriteLine($"\tHelyezés: {maxV.helyezes}");
+            Console.WriteLine($"\tNév: {maxV.nev}");
+            Console.WriteLine($"\tOrszág: {maxV.orszag}");
+            Console.WriteLine($"\tNyeremény: {(maxV.nyeremeny * 380).ToString("C0")} ");
+
+            //6.
         }
     }
 }
