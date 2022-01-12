@@ -108,7 +108,13 @@ namespace snooker
                 }
             }
             //vagy
-           //TODO: linq
+            //foreach ciklus(egyesével kivesz egy elemet, és egy függvényt alkalmaz
+            Versenyzok
+                .GroupBy(v => v.orszag)
+                .Select(g => new { orszag = g.Key, darab = g.Count() })
+                .Where(x => x.darab > 4)
+                .ToList()
+                .ForEach(x => Console.WriteLine($"\t{x.orszag}- {x.darab}fő"));
         }
     }
 }
